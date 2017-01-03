@@ -1,0 +1,106 @@
+default_view:
+  view: yes
+  entities:
+  - group.alarm
+  - group.thermostat
+  - group.all_switches_and_lights
+
+family:
+  entities:
+    - device_tracker.iphonehome
+    - device_tracker.iphonehome_bt
+    - device_tracker.timothynsiphonehome
+    - device_tracker.timothynsiphonehome_bt
+    - device_tracker.timothynspebblehome_bt
+    - device_tracker.user_timsiphone
+    - device_tracker.user_dianasiphone
+
+sensors:
+  entities:
+    - binary_sensor.bedroom_occupancy
+    - binary_sensor.downstairs_ecobee_occupancy
+
+alarm:
+  entities:
+    - alarm_control_panel.simplisafe
+
+thermostat:
+  entities:
+    - climate.downstairs_ecobee
+    - sensor.bedroom_temperature
+    - sensor.downstairs_ecobee_humidity
+    - sensor.downstairs_ecobee_temperature
+
+all_switches_and_lights:
+  name: All Lights
+  entities:
+    - group.all_lights
+    - group.all_switches
+
+downstairs_lights:
+  name: Downstairs Lights
+  entities:
+    - group.living_room_lights
+    - group.kitchen_lights
+
+Rooms:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.living_room
+    - group.living_room_lights
+    - group.dining_room
+    - group.kitchen
+    - group.kitchen_lights
+    - group.master_bedroom
+    - group.master_bedroom_lights
+
+Living Room:
+  entities:
+    - media_player.roku_632646101435
+    - group.living_room_lights
+
+Living Room Lights:
+  entities:
+    - light.ge_12724_3way_dimmer_switch_level_3_0
+
+Dining Room:
+  entities:
+    - climate.downstairs_ecobee
+    - binary_sensor.downstairs_ecobee_occupancy
+    - sensor.downstairs_ecobee_humidity
+    - sensor.downstairs_ecobee_temperature
+
+Master Bedroom:
+  entities:
+    - binary_sensor.bedroom_occupancy
+    - sensor.bedroom_temperature 
+    - group.master_bedroom_lights
+
+Master Bedroom Lights:
+  entities:
+    - switch.aeotec_zw096_smart_switch_6_switch_6_0
+    - switch.aeotec_zw096_smart_switch_6_switch_7_0
+
+Kitchen:
+  entities:
+    - group.kitchen_lights
+
+Kitchen Lights:
+  entities:
+    - light.ge_12724_3way_dimmer_switch_level_4_0
+    - switch.ge_12722_onoff_relay_switch_switch_5_0
+
+Home Status:
+  view: yes
+  icon: mdi:security
+  entities:
+    - group.family
+    - group.sensors
+    - group.alarm
+
+HVAC:
+  view: yes
+  icon: mdi:temperature-fahrenheit
+  entities: group.thermostat
+

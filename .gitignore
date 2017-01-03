@@ -1,0 +1,12 @@
+secrets.yaml
+zwscene.*
+deps/
+.HA_VERSION
+*.db
+known_devices.*
+*.log
+*.conf
+*.txt
+tts/
+zwcfg*.*
+

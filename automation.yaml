@@ -1,0 +1,51 @@
+- alias: 'Waking up'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.simplisafe
+    state: 'armed_home'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.simplisafe
+      from: 'armed_home'
+      to: 'disarmed'
+  action:
+     service: homeassistant.turn_on
+     entity_id: scene.wake_up
+
+- alias: 'Leaving home'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.simplisafe
+      from: 'disarmed'
+      to: 'armed_away'
+  action:
+     service: homeassistant.turn_off
+     entity_id: group.all_switches_and_lights
+
+- alias: 'Arriving home'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.simplisafe
+    state: 'armed_away'
+  trigger:
+    - platform: state
+      entity_id: group.family
+      state: 'home'
+    - platform: state
+      entity_id: alarm_control_panel.simplisafe
+      from: 'armed_away'
+      to: 'disarmed'
+  action:
+     service: homeassistant.turn_on
+     entity_id: group.all_lights
+
+- alias: 'Going to sleep'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.simplisafe
+      from: 'disarmed'
+      to: 'armed_home'
+  action:
+     service: homeassistant.turn_off
+     entity_id: group.all_switches_and_lights
+
