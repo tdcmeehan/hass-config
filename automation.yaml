@@ -1,8 +1,8 @@
 - alias: 'Waking up'
   condition:
     condition: state
-    entity_id: alarm_control_panel.simplisafe
-    state: 'armed_home'
+    entity_id: sun.sun
+    state: 'below_horizon'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.simplisafe
@@ -25,8 +25,8 @@
 - alias: 'Arriving home'
   condition:
     condition: state
-    entity_id: alarm_control_panel.simplisafe
-    state: 'armed_away'
+    entity_id: sun.sun 
+    state: 'below_horizon'
   trigger:
     - platform: state
       entity_id: group.family
@@ -37,7 +37,7 @@
       to: 'disarmed'
   action:
      service: homeassistant.turn_on
-     entity_id: group.all_lights
+     entity_id: scene.arrive_home
 
 - alias: 'Going to sleep'
   trigger:
@@ -47,5 +47,5 @@
       to: 'armed_home'
   action:
      service: homeassistant.turn_off
-     entity_id: group.all_switches_and_lights
+     entity_id: group.downstairs_lights
 
