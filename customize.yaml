@@ -16,3 +16,6 @@ binary_sensor.hub_hub:
   hidden: true
 media_player.roku_632646101435:
   friendly_name: Roku
+group.all_lights:
+  emulated_hue_name: "just the lights"
+
