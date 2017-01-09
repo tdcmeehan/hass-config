@@ -22,11 +22,15 @@
      service: homeassistant.turn_off
      entity_id: group.all_switches_and_lights
 
-- alias: 'Arriving home'
+- alias: 'Arriving home (Alarm)'
   condition:
-    condition: state
-    entity_id: sun.sun 
-    state: 'below_horizon'
+    condition: and
+      - condition: state
+        entity_id: sun.sun 
+        state: 'below_horizon'
+      - condition: state
+        entity_id: group.family
+        state: 'armed_away'
   trigger:
     - platform: state
       entity_id: group.family
@@ -35,6 +39,24 @@
       entity_id: alarm_control_panel.simplisafe
       from: 'armed_away'
       to: 'disarmed'
+  action:
+     service: homeassistant.turn_on
+     entity_id: scene.arrive_home
+
+- alias: 'Arriving home (Presence)'
+  condition:
+    condition: and
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: alarm_control_panel.simplisafe
+        state: 'armed_away'
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'not_home'
+      to: 'home'
   action:
      service: homeassistant.turn_on
      entity_id: scene.arrive_home
