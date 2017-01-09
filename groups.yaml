@@ -7,13 +7,20 @@ default_view:
 
 family:
   entities:
+    - group.diana
+    - group.tim
+
+tim:
+  entities:
+    - device_tracker.user_timsiphone
     - device_tracker.iphonehome
     - device_tracker.iphonehome_bt
-    - device_tracker.timothynsiphonehome
-    - device_tracker.timothynsiphonehome_bt
-    - device_tracker.timothynspebblehome_bt
-    - device_tracker.user_timsiphone
+
+diana:
+  entities:
     - device_tracker.user_dianasiphone
+    - device_tracker.iphonehome
+    - device_tracker.iphonehome_bt
 
 sensors:
   entities:

@@ -12,12 +12,24 @@
      service: homeassistant.turn_on
      entity_id: scene.wake_up
 
-- alias: 'Leaving home'
+- alias: 'Leaving home (Armed)'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.simplisafe
       from: 'disarmed'
       to: 'armed_away'
+  action:
+     service: homeassistant.turn_off
+     entity_id: group.all_switches_and_lights
+
+- alias: 'Leaving home (Away)'
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'home'
+      to: 'not_home'
+      for:
+        minutes: 30
   action:
      service: homeassistant.turn_off
      entity_id: group.all_switches_and_lights
@@ -31,7 +43,7 @@
         state: 'below_horizon'
       - condition: state
         entity_id: group.family
-        state: 'armed_away'
+        state: 'not_home'
   trigger:
     - platform: state
       entity_id: group.family
