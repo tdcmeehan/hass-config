@@ -1,19 +1,19 @@
 - name: Wake up
   entities:
-    light.ge_12724_3way_dimmer_switch_level_3_0:
+    light.living_room_level_3_0:
       state: on
-      brightness: 75
-    light.ge_12724_3way_dimmer_switch_level_4_0:
+      brightness: 50
+    light.kitchen_counter_level_4_0:
       state: on
-      brightness: 75
+      brightness: 50
 
 - name: Arrive home
   entities:
-    light.ge_12724_3way_dimmer_switch_level_3_0:
+    light.living_room_level_3_0:
       state: on
       brightness: 200
-    light.ge_12724_3way_dimmer_switch_level_4_0:
+    light.kitchen_counter_level_4_0:
       state: on
       brightness: 200
-    switch.ge_12722_onoff_relay_switch_switch_5_0:
+    switch.kitchen_switch_5_0:
       state: on

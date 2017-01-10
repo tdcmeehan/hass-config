@@ -72,7 +72,7 @@ Living Room:
 
 Living Room Lights:
   entities:
-    - light.ge_12724_3way_dimmer_switch_level_3_0
+    - light.living_room_level_3_0
 
 Dining Room:
   entities:
@@ -89,8 +89,8 @@ Master Bedroom:
 
 Master Bedroom Lights:
   entities:
-    - switch.aeotec_zw096_smart_switch_6_switch_6_0
-    - switch.aeotec_zw096_smart_switch_6_switch_7_0
+    - switch.dianas_lamp_switch_6_0
+    - switch.tims_lamp_switch_7_0
 
 Kitchen:
   entities:
@@ -98,8 +98,8 @@ Kitchen:
 
 Kitchen Lights:
   entities:
-    - light.ge_12724_3way_dimmer_switch_level_4_0
-    - switch.ge_12722_onoff_relay_switch_switch_5_0
+    - light.kitchen_counter_level_4_0
+    - switch.kitchen_switch_5_0
 
 Home Status:
   view: yes
