@@ -62,12 +62,9 @@ Rooms:
   icon: mdi:home
   entities:
     - group.living_room
-    - group.living_room_lights
     - group.dining_room
     - group.kitchen
-    - group.kitchen_lights
     - group.master_bedroom
-    - group.master_bedroom_lights
 
 Living Room:
   entities:
