@@ -1,6 +1,6 @@
 light.living_room_level_3_0:
   friendly_name: Living Room
-light.light.kitchen_counter_level_4_0:
+light.kitchen_counter_level_4_0:
   friendly_name: Kitchen Counter
 switch.kitchen_switch_5_0:
   friendly_name: Kitchen
