@@ -75,6 +75,7 @@ Living Room:
     - group.living_room_lights
 
 Living Room Lights:
+  view: no 
   entities:
     - light.living_room_level_3_0
 
@@ -94,6 +95,7 @@ Master Bedroom:
     - switch.tims_lamp_switch_7_0
 
 Master Bedroom Lights:
+  view: no 
   entities:
     - switch.dianas_lamp_switch_6_0
     - switch.tims_lamp_switch_7_0
@@ -105,6 +107,7 @@ Kitchen:
     - switch.kitchen_switch_5_0
 
 Kitchen Lights:
+  view: no 
   entities:
     - light.kitchen_counter_level_4_0
     - switch.kitchen_switch_5_0
