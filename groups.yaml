@@ -7,11 +7,9 @@ default_view:
 
 family:
   entities:
-    - group.tim
     - device_tracker.user_timsiphone
     - device_tracker.timothynsiphonehome_bt
     - device_tracker.timothynspebblehome_bt
-    - group.diana
     - device_tracker.user_dianasiphone
     - device_tracker.iphonehome_bt
 
