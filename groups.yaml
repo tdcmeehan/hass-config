@@ -72,7 +72,7 @@ Rooms:
 Living Room:
   entities:
     - media_player.roku_632646101435
-    - group.living_room_lights
+    - light.living_room_level_3_0
 
 Living Room Lights:
   view: no 
@@ -90,7 +90,6 @@ Master Bedroom:
   entities:
     - binary_sensor.bedroom_occupancy
     - sensor.bedroom_temperature 
-    - group.master_bedroom_lights
     - switch.dianas_lamp_switch_6_0
     - switch.tims_lamp_switch_7_0
 
@@ -102,7 +101,6 @@ Master Bedroom Lights:
 
 Kitchen:
   entities:
-    - group.kitchen_lights
     - light.kitchen_counter_level_4_0
     - switch.kitchen_switch_5_0
 
