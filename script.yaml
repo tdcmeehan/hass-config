@@ -1,0 +1,13 @@
+welcome_home:
+  sequence:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.simplisafe
+      data:
+        code: !secret simplisafe_code
+    - condition: state
+      entity_id: entity_id: sun.sun
+      state: 'below_horizon' 
+    - service: homeassistant.turn_on
+      entity_id: scene.arrive_home
+ 
+
