@@ -10,7 +10,7 @@
       to: 'disarmed'
   action:
      service: homeassistant.turn_on
-     entity_id: scene.wake_up
+     entity_id: script.wake_up
 
 - alias: 'Leaving home (Armed)'
   trigger:
@@ -19,8 +19,8 @@
       from: 'disarmed'
       to: 'armed_away'
   action:
-     service: homeassistant.turn_off
-     entity_id: group.all_switches_and_lights
+     service: homeassistant.turn_on
+     entity_id: script.goodbye
 
 - alias: 'Leaving home (Away)'
   trigger:
@@ -33,24 +33,8 @@
   action:
      service: homeassistant.turn_off
      entity_id: group.all_switches_and_lights
-
-- alias: 'Leaving home (Forgot Alarm)'
-  condition:
-    condition: state
-    entity_id: alarm_control_panel.simplisafe
-    state: 'disarmed'
-  trigger:
-    - platform: state
-      entity_id: group.family
-      from: 'home'
-      to: 'not_home'
-      for:
-        minutes: 10
-  action:
-     service: alarm_control_panel.alarm_arm_away 
-     entity_id: alarm_control_panel.simplisafe
-     data:
-       code: !secret simplisafe_code
+     service: homeassistant.turn_on
+     entity_id: script.goodbye
 
 - alias: 'Arriving home (Alarm)'
   condition:
@@ -69,7 +53,7 @@
       to: 'disarmed'
   action:
      service: homeassistant.turn_on
-     entity_id: scene.arrive_home
+     entity_id: script.welcome_home
 
 - alias: 'Arriving home (Presence)'
   condition:
@@ -88,7 +72,7 @@
       to: 'home'
   action:
      service: homeassistant.turn_on
-     entity_id: scene.arrive_home
+     entity_id: script.welcome_home 
 
 - alias: 'Going to sleep'
   trigger:
@@ -98,5 +82,5 @@
       to: 'armed_home'
   action:
      service: homeassistant.turn_off
-     entity_id: group.downstairs_lights
+     entity_id: script.good_night
 

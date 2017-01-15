@@ -10,4 +10,33 @@ welcome_home:
     - service: homeassistant.turn_on
       entity_id: scene.arrive_home
  
+goodbye:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: group.all_switches_and_lights
+    - condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.family
+          state: 'not_home'
+          for: 
+            minutes: 30
+        - condition: state
+          entity_id: alarm_control_panel.simplisafe
+          state: 'disarmed'
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.simplisafe
+      data:
+        code: !secret simplisafe_code
+
+wake_up:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: scene.wake_up
+
+good_night:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: group.downstairs_lights
 
