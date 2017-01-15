@@ -84,5 +84,5 @@ device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200
 
-zones: !include zones.yaml
+zone: !include zones.yaml
 
