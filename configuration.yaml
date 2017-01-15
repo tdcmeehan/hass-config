@@ -83,5 +83,6 @@ device_tracker:
     track_new_devices: False
   - platform: owntracks
     max_gps_accuracy: 200
-    waypoints: True
+
+zones: !include zones.yaml
 
