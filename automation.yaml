@@ -34,6 +34,22 @@
      service: homeassistant.turn_off
      entity_id: group.all_switches_and_lights
 
+- alias: 'Leaving home (Forgot Alarm)'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.simplisafe
+    state: 'disarmed'
+  trigger:
+    - platform: state
+      entity_id: group.family
+      from: 'home'
+      to: 'not_home'
+      for:
+        minutes: 30
+  action:
+     service: alarm_control_panel.alarm_arm_away 
+     entity_id: alarm_control_panel.simplisafe
+
 - alias: 'Arriving home (Alarm)'
   condition:
     condition: and
@@ -45,9 +61,6 @@
         entity_id: group.family
         state: 'not_home'
   trigger:
-    - platform: state
-      entity_id: group.family
-      state: 'home'
     - platform: state
       entity_id: alarm_control_panel.simplisafe
       from: 'armed_away'
