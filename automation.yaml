@@ -31,8 +31,6 @@
       for:
         minutes: 30
   action:
-     service: homeassistant.turn_off
-     entity_id: group.all_switches_and_lights
      service: homeassistant.turn_on
      entity_id: script.goodbye
 
