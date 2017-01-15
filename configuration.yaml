@@ -61,9 +61,6 @@ zwave:
   usb_path: /dev/zwavestick
 
 emulated_hue:
-#  exposed_domains:
-#    - light
-#    - switch
 
 ecobee:
   api_key: !secret ecobee_key
