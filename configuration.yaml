@@ -63,8 +63,12 @@ zwave:
   customize:
     light.living_room_level_3_0:
       polling_intensity: 1
+      refresh_value: true
+      delay: 3
     light.kitchen_counter_level_4_0:
       polling_intensity: 1
+      refresh_value: true
+      delay: 3
 
 emulated_hue:
 
