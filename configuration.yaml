@@ -56,7 +56,6 @@ alarm_control_panel:
   platform: simplisafe
   username: !secret simplisafe_username
   password: !secret simplisafe_password 
-  code: !secret simplisafe_code
 
 zwave:
   usb_path: /dev/zwavestick
