@@ -1,6 +1,6 @@
 welcome_home:
   sequence:
-    - service: alarm_control_panel.alarm_arm_away
+    - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.simplisafe
       data:
         code: !secret simplisafe_code
@@ -24,10 +24,10 @@ goodbye:
         - condition: state
           entity_id: alarm_control_panel.simplisafe
           state: 'disarmed'
-    - service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.simplisafe
-      data:
-        code: !secret simplisafe_code
+#    - service: alarm_control_panel.alarm_arm_away
+#      entity_id: alarm_control_panel.simplisafe
+#      data:
+#        code: !secret simplisafe_code
 
 wake_up:
   sequence:
