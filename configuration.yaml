@@ -59,6 +59,12 @@ alarm_control_panel:
 
 zwave:
   usb_path: /dev/zwavestick
+  polling_interval: 30000
+  customize:
+    light.living_room_level_3_0:
+      polling_intensity: 1
+    light.kitchen_counter_level_4_0:
+      polling_intensity: 1
 
 emulated_hue:
 
