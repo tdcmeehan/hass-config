@@ -42,9 +42,9 @@ good_night:
 
 alarm_state_change:
   sequence:
-    - service: notify.notify
+    - service: notify.pushbullet
       data_template:
         message: "Alarm is now {{ states('alarm_control_panel.simplisafe') }}"
-        #target:
-        #  - "device/tim"
+        target:
+          - "device/tim"
 

@@ -97,7 +97,7 @@ device_tracker:
 zone: !include zones.yaml
 
 notify:
-  - name: Tim's Pushbullet 
+  - name: pushbullet 
     platform: pushbullet
     api_key: !secret pushbullet_key
 
