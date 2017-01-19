@@ -84,14 +84,6 @@
   trigger:
     - platform: state
       entity_id: alarm_control_panel.simplisafe
-  condition: 
-    condition: template
-    value_template: >
-      {% if is_state('alarm_control_panel.simplisafe', 'unknown') %}
-        false
-      {% else %}
-        true
-      {% endif %}
   action:
     service: homeassistant.turn_on
     entity_id: script.alarm_state_change

@@ -42,9 +42,27 @@ good_night:
 
 alarm_state_change:
   sequence:
+    - condition: template
+      value_template: >
+        {% if is_state('alarm_control_panel.simplisafe', 'unknown') %}
+          false
+        {% else %}
+          true
+        {% endif %}
     - service: notify.pushbullet
       data_template:
         message: "Alarm is now {{ states('alarm_control_panel.simplisafe') }}"
         target:
           - "device/tim"
+    - condition: or
+      conditions:
+        - condition: time
+          after: '06:50:00'
+        - condition: time
+          before: '06:00:00'
+    - service: notify.pushbullet
+      data_template:
+        message: "Alarm is now {{ states('alarm_control_panel.simplisafe') }}"
+        target:
+          - !secret diana_pushbullet
 
