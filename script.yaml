@@ -52,6 +52,8 @@ alarm_state_change:
     - service: notify.pushbullet
       data_template:
         message: "Alarm is now {{ states('alarm_control_panel.simplisafe') }}"
+        data:
+          url: https://doremus.timdmeehan.com/states/group.home_status
         target:
           - "device/tim"
     - condition: or
@@ -63,6 +65,8 @@ alarm_state_change:
     - service: notify.pushbullet
       data_template:
         message: "Alarm is now {{ states('alarm_control_panel.simplisafe') }}"
+        data:
+          url: https://doremus.timdmeehan.com/states/group.home_status
         target:
           - !secret diana_pushbullet
 
