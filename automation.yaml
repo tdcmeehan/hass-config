@@ -84,7 +84,8 @@
   trigger:
     - platform: state
       entity_id: alarm_control_panel.simplisafe
-  condition: template
+  condition: 
+    condition: template
     value_template: >
       {% if is_state('alarm_control_panel.simplisafe', 'unknown') %}
         false
