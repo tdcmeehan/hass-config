@@ -9,4 +9,4 @@ known_devices.*
 *.txt
 tts/
 zwcfg*.*
-
+*.swp
