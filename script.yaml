@@ -45,6 +45,6 @@ alarm_state_change:
     - service: notify.notify
       data_template:
         message: "Alarm is now {{ states('alarm_control_panel.simplisafe') }}"
-        target:
-          - "device/tim"
+        #target:
+        #  - "device/tim"
 
