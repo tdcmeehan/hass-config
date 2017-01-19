@@ -24,10 +24,11 @@ goodbye:
         - condition: state
           entity_id: alarm_control_panel.simplisafe
           state: 'disarmed'
-#    - service: alarm_control_panel.alarm_arm_away
-#      entity_id: alarm_control_panel.simplisafe
-#      data:
-#        code: !secret simplisafe_code
+    - service: notify.notify
+      data: 
+        message: "Alarm is still disarmed!"
+        data:
+          url: https://doremus.timdmeehan.com/states/group.home_status
 
 wake_up:
   sequence:
@@ -38,4 +39,13 @@ good_night:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.downstairs_lights
+
+alarm_state_change:
+  sequence:
+    - service: notify.notify
+      data_template:
+        message: >
+          Alarm is now {{alarm_control_panel.simplisafe.state
+        target:
+          - "device/tim"
 

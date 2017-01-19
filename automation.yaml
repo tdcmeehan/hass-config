@@ -16,7 +16,6 @@
   trigger:
     - platform: state
       entity_id: alarm_control_panel.simplisafe
-      from: 'disarmed'
       to: 'armed_away'
   action:
      service: homeassistant.turn_on
@@ -76,9 +75,17 @@
   trigger:
     - platform: state
       entity_id: alarm_control_panel.simplisafe
-      from: 'disarmed'
       to: 'armed_home'
   action:
      service: homeassistant.turn_on
      entity_id: script.good_night
+
+- alias: 'Alarm state change'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.simplisafe
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.alarm_state_change
+
 
