@@ -101,3 +101,8 @@ notify:
     platform: pushbullet
     api_key: !secret pushbullet_key
 
+shell_command:
+  arm_blink: /custom_scripts/blinkarm.sh
+  disarm_blink: /custom_scripts/blinkdisarm.sh
+
+
