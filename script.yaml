@@ -26,11 +26,14 @@ goodbye:
         - condition: state
           entity_id: alarm_control_panel.simplisafe
           state: 'disarmed'
-    - service: notify.notify
+    - service: notify.pushbullet
       data: 
         message: "Alarm is still disarmed!"
         data:
           url: https://doremus.timdmeehan.com/states/group.home_status
+        target:
+          - !secret tim_pushbullet
+          - !secret diana_pushbullet
 
 wake_up:
   sequence:
@@ -59,7 +62,7 @@ alarm_state_change:
         data:
           url: https://doremus.timdmeehan.com/states/group.home_status
         target:
-          - "device/tim"
+          - !secret tim_pushbullet
     - condition: or
       conditions:
         - condition: time
