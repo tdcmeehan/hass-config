@@ -4,6 +4,8 @@ welcome_home:
       entity_id: alarm_control_panel.simplisafe
       data:
         code: !secret simplisafe_code
+    - service: homeassistant.turn_on
+      entity_id: shell_command.disarm_blink
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon' 
@@ -14,6 +16,9 @@ goodbye:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.all_switches_and_lights
+    - service: homeassistant.turn_on
+      entity_id: shell_command.arm_blink
+    - condition: state
     - condition: and
       conditions:
         - condition: state
@@ -34,11 +39,15 @@ wake_up:
   sequence:
     - service: homeassistant.turn_on
       entity_id: scene.wake_up
+    - service: homeassistant.turn_on
+      entity_id: shell_command.disarm_blink
 
 good_night:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.downstairs_lights
+    - service: homeassistant.turn_on
+      entity_id: shell_command.arm_blink
 
 alarm_state_change:
   sequence:
