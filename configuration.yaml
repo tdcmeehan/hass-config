@@ -49,8 +49,8 @@ sun:
 sensor:
   platform: yr
 
-wink:
-  access_token: !secret wink_key
+#wink:
+#  access_token: !secret wink_key
 
 alarm_control_panel:
   platform: simplisafe
