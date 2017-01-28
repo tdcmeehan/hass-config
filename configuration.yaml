@@ -114,6 +114,6 @@ alexa:
           entity_id: script.{{ Script | replace(" ", "_") }}
       speech:
         type: plaintext
-        text: OK
+        text: yes master
 
 
