@@ -1,4 +1,4 @@
-welcome_home:
+coming_home:
   sequence:
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.simplisafe
@@ -11,7 +11,7 @@ welcome_home:
     - service: homeassistant.turn_on
       entity_id: scene.arrive_home
  
-goodbye:
+leaving_home:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.all_switches_and_lights
@@ -35,13 +35,13 @@ goodbye:
           - !secret tim_pushbullet
           - !secret diana_pushbullet
 
-wake_up:
+waking_up:
   sequence:
     - service: homeassistant.turn_on
       entity_id: scene.wake_up
     - service: shell_command.disarm_blink
 
-good_night:
+going_to_sleep:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.downstairs_lights

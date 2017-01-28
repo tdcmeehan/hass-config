@@ -10,7 +10,7 @@
       to: 'disarmed'
   action:
      service: homeassistant.turn_on
-     entity_id: script.wake_up
+     entity_id: script.waking_up
 
 - alias: 'Leaving home (Armed)'
   trigger:
@@ -19,7 +19,7 @@
       to: 'armed_away'
   action:
      service: homeassistant.turn_on
-     entity_id: script.goodbye
+     entity_id: script.leaving_home
 
 - alias: 'Leaving home (Away)'
   trigger:
@@ -31,7 +31,7 @@
         minutes: 30
   action:
      service: homeassistant.turn_on
-     entity_id: script.goodbye
+     entity_id: script.leaving_home
 
 - alias: 'Arriving home (Alarm)'
   condition:
@@ -50,7 +50,7 @@
       to: 'disarmed'
   action:
      service: homeassistant.turn_on
-     entity_id: script.welcome_home
+     entity_id: script.coming_home
 
 - alias: 'Arriving home (Presence)'
   condition:
@@ -69,7 +69,7 @@
       to: 'home'
   action:
      service: homeassistant.turn_on
-     entity_id: script.welcome_home 
+     entity_id: script.coming_home
 
 - alias: 'Going to sleep'
   trigger:
@@ -78,7 +78,7 @@
       to: 'armed_home'
   action:
      service: homeassistant.turn_on
-     entity_id: script.good_night
+     entity_id: script.going_to_sleep
 
 - alias: 'Alarm state change'
   trigger:

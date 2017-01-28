@@ -105,4 +105,15 @@ shell_command:
   arm_blink: /custom_scripts/blinkarm.sh
   disarm_blink: /custom_scripts/blinkdisarm.sh
 
+alexa:
+  intents:
+    RunScriptIntent:
+      action:
+        service: script.turn_on
+        data_template:
+          entity_id: script.{{ Script | replace(" ", "_") }}
+      speech:
+        type: plaintext
+        text: OK
+
 
