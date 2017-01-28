@@ -13,6 +13,13 @@ coming_home:
  
 leaving_home:
   sequence:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id : alarm_control_panel.simplisafe
+    - service: homeassistant.turn_on
+      entity_id: script.goodbye
+
+goodbye:
+  sequence:
     - service: homeassistant.turn_off
       entity_id: group.all_switches_and_lights
     - service: shell_command.arm_blink
@@ -37,11 +44,25 @@ leaving_home:
 
 waking_up:
   sequence:
+    - service: alarm_control_panel.alarm_off
+      entity_id : alarm_control_panel.simplisafe
+    - service: homeassistant.turn_on
+      entity_id: script.wake_up
+
+wake_up:
+  sequence:
     - service: homeassistant.turn_on
       entity_id: scene.wake_up
     - service: shell_command.disarm_blink
 
 going_to_sleep:
+  sequence:
+    - service: alarm_control_panel.alarm_arm_home
+      entity_id : alarm_control_panel.simplisafe
+    - service: homeassistant.turn_on
+      entity_id: script.good_night
+
+good_night:
   sequence:
     - service: homeassistant.turn_off
       entity_id: group.downstairs_lights
