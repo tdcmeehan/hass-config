@@ -8,7 +8,7 @@ import requests
 import voluptuous as vol
 from datetime import timedelta
 
-from homeassistant.components import blink
+from .. import blink
 from homeassistant.components.camera import Camera
 from homeassistant.helpers import config_validation as cv
 from homeassistant.util.async import run_coroutine_threadsafe
