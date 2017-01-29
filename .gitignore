@@ -10,3 +10,4 @@ known_devices.*
 tts/
 zwcfg*.*
 *.swp
+dependencies/
