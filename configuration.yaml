@@ -116,4 +116,8 @@ alexa:
         type: plaintext
         text: yes master
 
+camera:
+  - platform: blink
+    username: !secret blink_username
+    password: !secret blink_password
 
