@@ -8,7 +8,6 @@ import requests
 import voluptuous as vol
 from datetime import timedelta
 
-from .. import blink
 from homeassistant.components.camera import Camera
 from homeassistant.helpers import config_validation as cv
 from homeassistant.util.async import run_coroutine_threadsafe
@@ -24,6 +23,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     """Setup a Blink Camera."""
     if discovery_info is None:
         return
+    from homeassistant.components import blink
         
     data = hass.data[blink.DOMAIN].blink
     
