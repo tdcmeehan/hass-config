@@ -1,3 +1,8 @@
+arriving_home:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: script.coming_home
+
 coming_home:
   sequence:
     - service: alarm_control_panel.alarm_disarm
@@ -17,6 +22,11 @@ leaving_home:
       entity_id : alarm_control_panel.simplisafe
     - service: homeassistant.turn_on
       entity_id: script.goodbye
+
+leaving:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: script.leaving_home
 
 goodbye:
   sequence:
@@ -42,6 +52,11 @@ goodbye:
           - !secret tim_pushbullet
           - !secret diana_pushbullet
 
+awake:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: script.waking_up
+
 waking_up:
   sequence:
     - service: alarm_control_panel.alarm_disarm
@@ -54,6 +69,11 @@ wake_up:
     - service: homeassistant.turn_on
       entity_id: scene.wake_up
     - service: shell_command.disarm_blink
+
+going_to_bed:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: script.going_to_sleep
 
 going_to_sleep:
   sequence:
